@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apprentissage Lycée - Plateforme d'apprentissage pour lycéens</title>
+    <meta name="description" content="Cours, exercices corrigés et anciens sujets d'examens pour lycéens. Téléchargez des documents PDF gratuits et payants avec paiement Mobile Money.">
+    <meta name="keywords" content="cours lycée, exercices corrigés, baccalauréat, sujets examens, apprentissage, PDF éducatif">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Styles additionnels pour la page d'accueil */
+        .hero {
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+        
+        .search-box {
+            max-width: 600px;
+            margin: 0 auto;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+        
+        .search-box form {
+            display: flex;
+            gap: 10px;
+            background: white;
+            border-radius: 50px;
+            padding: 5px;
+        }
+        
+        .search-box input {
+            flex: 1;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            outline: none;
+        }
+        
+        .search-box button {
+            padding: 0 30px;
+            background: #f59e0b;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .search-box button:hover {
+            background: #d97706;
+            transform: scale(1.02);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .features {
+            padding: 60px 0;
+            background: #f8fafc;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+        
+        .feature-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 10px;
+            color: #1e293b;
+        }
+        
+        .feature-card p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+        
+        .stats {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: white;
+            padding: 60px 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #f59e0b;
+        }
+        
+        .stat-label {
+            margin-top: 10px;
+            opacity: 0.8;
+        }
+        
+        .subjects {
+            padding: 60px 0;
+        }
+        
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .subject-card {
+            background: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #1e293b;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .subject-card i {
+            color: #2563eb;
+            font-size: 1.2rem;
+        }
+        
+        .subject-card:hover {
+            border-color: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .documents {
+            padding: 60px 0;
+            background: #f8fafc;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .section-header h2 {
+            margin: 0;
+        }
+        
+        .section-header a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .document-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .document-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .document-preview {
+            background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .document-preview i {
+            font-size: 4rem;
+            color: #ef4444;
+        }
+        
+        .document-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #2563eb;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+        
+        .document-card h3 {
+            padding: 15px 15px 5px;
+            font-size: 1.1rem;
+        }
+        
+        .document-meta {
+            padding: 0 15px;
+            font-size: 0.85rem;
+            color: #64748b;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .document-meta span {
+            background: #f1f5f9;
+            padding: 2px 8px;
+            border-radius: 20px;
+        }
+        
+        .document-description {
+            padding: 10px 15px;
+            font-size: 0.9rem;
+            color: #475569;
+        }
+        
+        .document-footer {
+            padding: 15px;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .price {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .price.free {
+            color: #10b981;
+        }
+        
+        .price.paid {
+            color: #2563eb;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 8px 20px;
+            background: #64748b;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: #2563eb;
+        }
+        
+        .btn-primary:hover {
+            background: #1e40af;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            margin-bottom: 20px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: #2563eb;
+        }
+        
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 40px 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h4 {
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .footer-section a {
+            color: #94a3b8;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #1e293b;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .documents-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<header>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-graduation-cap"></i> Apprentissage Lycée
+            </a>
+            <ul class="nav-links">
+                <li><a href="pages/documents.php">Documents</a></li>
+                <li><a href="pages/documents.php?type=cours">Cours</a></li>
+                <li><a href="pages/documents.php?type=exercice">Exercices</a></li>
+                <li><a href="pages/documents.php?type=examen">Examens</a></li>
+                <li><a href="pages/login.php" class="btn btn-primary" style="background: #f59e0b;">Connexion</a></li>
+                <li><a href="pages/register.php" class="btn">Inscription</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Révisez et réussissez vos  examens avec nous !</h1>
+            <p>Des milliers de cours, exercices corrigés et sujets d'examens à portée de clic</p>
+            <div class="search-box">
+                <form action="pages/documents.php" method="GET">
+                    <input type="text" name="search" placeholder="Rechercher un cours, un exercice, un examen...">
+                    <button type="submit"><i class="fas fa-search"></i> Rechercher</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Cours complets</h3>
+                    <p>Des cours détaillés et structurés pour toutes les matières du lycée</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-pen-alt"></i>
+                    </div>
+                    <h3>Exercices corrigés</h3>
+                    <p>Des exercices avec corrections détaillées pour s'entraîner efficacement</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Anciens sujets</h3>
+                    <p>Les sujets d'examens des années précédentes avec corrigés</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Paiement Mobile Money</h3>
+                    <p>Payez vos documents par Orange Money ou MTN Mobile Money</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Statistics Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Documents disponibles</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Matières couvertes</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10,000+</div>
+                    <div class="stat-label">Élèves inscrits</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Accès illimité</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Subjects Section -->
+    <section class="subjects">
+        <div class="container">
+            <div class="section-header">
+                <h2>Matières disponibles</h2>
+                <a href="pages/documents.php">Voir toutes &rarr;</a>
+            </div>
+            <div class="subjects-grid">
+                <a href="pages/documents.php?subject=Mathématiques" class="subject-card">
+                    <i class="fas fa-calculator"></i> Mathématiques
+                </a>
+                <a href="pages/documents.php?subject=Physique-Chimie" class="subject-card">
+                    <i class="fas fa-flask"></i> Physique-Chimie
+                </a>
+                <a href="pages/documents.php?subject=SVT" class="subject-card">
+                    <i class="fas fa-dna"></i> SVT
+                </a>
+                <a href="pages/documents.php?subject=Philosophie" class="subject-card">
+                    <i class="fas fa-brain"></i> Philosophie
+                </a>
+                <a href="pages/documents.php?subject=Histoire-Géographie" class="subject-card">
+                    <i class="fas fa-landmark"></i> Histoire-Géo
+                </a>
+                <a href="pages/documents.php?subject=Anglais" class="subject-card">
+                    <i class="fas fa-language"></i> Anglais
+                </a>
+                <a href="pages/documents.php?subject=Français" class="subject-card">
+                    <i class="fas fa-book"></i> Français
+                </a>
+                <a href="pages/documents.php?subject=Informatique" class="subject-card">
+                    <i class="fas fa-laptop-code"></i> Informatique
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Free Documents Section -->
+    <section class="documents">
+        <div class="container">
+            <div class="section-header">
+                <h2>📚 Documents gratuits</h2>
+                <a href="pages/documents.php?price_type=free">Voir tous les gratuits &rarr;</a>
+            </div>
+            <div class="documents-grid">
+                <!-- Document 1 -->
+                <div class="document-card">
+                    <div class="document-preview">
+                        <i class="fas fa-file-pdf"></i>
+                        <span class="document-badge">Gratuit</span>
+                    </div>
+                    <h3>Cours complet sur les suites numériques</h3>
+                    <div class="document-meta">
+                        <span>Cours</span>
+                        <span>Terminale</span>
+                        <span>Mathématiques</span>
+                    </div>
+                    <p class="document-description">Cours détaillé sur les suites arithmétiques et géométriques avec exemples et exercices d'application.</p>
+                    <div class="document-footer">
+                        <span class="price free">Gratuit</span>
+                        <a href="pages/document-detail.php?id=1" class="btn btn-primary">Voir</a>
+                    </div>
+                </div>
+                
+                <!-- Document 2 -->
+                <div class="document-card">
+                    <div class="document-preview">
+                        <i class="fas fa-file-pdf"></i>
+                        <span class="document-badge">Gratuit</span>
+                    </div>
+                    <h3>Fiche de révision - Fonctions logarithmes</h3>
+                    <div class="document-meta">
+                        <span>Cours</span>
+                        <span>Terminale</span>
+                        <span>Mathématiques</span>
+                    </div>
+                    <p class="document-description">Fiche synthétique sur les fonctions logarithmes : propriétés, graphiques et exercices types.</p>
+                    <div class="document-footer">
+                        <span class="price free">Gratuit</span>
+                        <a href="pages/document-detail.php?id=2" class="btn btn-primary">Voir</a>
+                    </div>
+                </div>
+                
+                <!-- Document 3 -->
+                <div class="document-card">
+                    <div class="document-preview">
+                        <i class="fas fa-file-pdf"></i>
+                        <span class="document-badge">Gratuit</span>
+                    </div>
+                    <h3>Exercices corrigés - Probabilités</h3>
+                    <div class="document-meta">
+                        <span>Exercices</span>
+                        <span>1ère</span>
+                        <span>Mathématiques</span>
+                    </div>
+                    <p class="document-description">Série d'exercices corrigés sur les probabilités conditionnelles et les variables aléatoires.</p>
+                    <div class="document-footer">
+                        <span class="price free">Gratuit</span>
+                        <a href="pages/document-detail.php?id=3" class="btn btn-primary">Voir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Popular Documents Section -->
+    <section class="documents" style="background: white;">
+        <div class="container">
+            <div class="section-header">
+                <h2>⭐ Documents populaires</h2>
+                <a href="pages/documents.php">Voir tous &rarr;</a>
+            </div>
+            <div class="documents-grid">
+                <!-- Document 4 -->
+                <div class="document-card">
+                    <div class="document-preview">
+                        <i class="fas fa-file-pdf"></i>
+                        <span class="document-badge" style="background: #f59e0b;">Payant</span>
+                    </div>
+                    <h3>Sujet Bac Maths S 2024 - Pondichéry</h3>
+                    <div class="document-meta">
+                        <span>Examen</span>
+                        <span>Terminale</span>
+                        <span>Mathématiques</span>
+                    </div>
+                    <p class="document-description">Sujet officiel du baccalauréat série S avec barème et indications de correction.</p>
+                    <div class="document-footer">
+                        <span class="price paid">500 FCFA</span>
+                        <a href="pages/document-detail.php?id=4" class="btn btn-primary">Acheter</a>
+                    </div>
+                </div>
+                
+                <!-- Document 5 -->
+                <div class="document-card">
+                    <div class="document-preview">
+                        <i class="fas fa-file-pdf"></i>
+                        <span class="document-badge" style="background: #f59e0b;">Payant</span>
+                    </div>
+                    <h3>Corrigé Bac Physique-Chimie 2024</h3>
+                    <div class="document-meta">
+                        <span>Corrigé</span>
+                        <span>Terminale</span>
+                        <span>Physique-Chimie</span>
+                    </div>
+                    <p class="document-description">Correction détaillée du baccalauréat avec explications pas à pas.</p>
+                    <div class="document-footer">
+                        <span class="price paid">500 FCFA</span>
+                        <a href="pages/document-detail.php?id=5" class="btn btn-primary">Acheter</a>
+                    </div>
+                </div>
+                
+                <!-- Document 6 -->
+                <div class="document-card">
+                    <div class="document-preview">
+                        <i class="fas fa-file-pdf"></i>
+                        <span class="document-badge" style="background: #f59e0b;">Payant</span>
+                    </div>
+                    <h3>Pack Révision - Spécialité Mathématiques</h3>
+                    <div class="document-meta">
+                        <span>Cours+Exos</span>
+                        <span>Terminale</span>
+                        <span>Mathématiques</span>
+                    </div>
+                    <p class="document-description">Pack complet : cours, exercices corrigés et sujets types pour la spécialité maths.</p>
+                    <div class="document-footer">
+                        <span class="price paid">1500 FCFA</span>
+                        <a href="pages/document-detail.php?id=6" class="btn btn-primary">Acheter</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Prêt à réussir votre baccalauréat ?</h2>
+            <p>Inscrivez-vous gratuitement et accédez à des milliers de documents éducatifs</p>
+            <div class="cta-buttons">
+                <a href="pages/register.php" class="btn btn-primary" style="background: white; color: #2563eb;">Créer un compte gratuit</a>
+                <a href="pages/documents.php" class="btn btn-outline">Parcourir les documents</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Apprentissage Lycée</h4>
+                <p>Plateforme éducative dédiée aux lycéens pour réussir leur parcours scolaire.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Liens utiles</h4>
+                <a href="pages/documents.php">Tous les documents</a>
+                <a href="pages/documents.php?type=cours">Cours</a>
+                <a href="pages/documents.php?type=exercice">Exercices</a>
+                <a href="pages/documents.php?type=examen">Examens</a>
+            </div>
+            <div class="footer-section">
+                <h4>Aide</h4>
+                <a href="#">FAQ</a>
+                <a href="#">Contact</a>
+                <a href="#">CGU</a>
+                <a href="#">Mentions légales</a>
+            </div>
+            <div class="footer-section">
+                <h4>Paiement</h4>
+                <p><i class="fas fa-mobile-alt"></i> Orange Money</p>
+                <p><i class="fas fa-mobile-alt"></i> MTN Mobile Money</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Apprentissage Lycée - Tous droits réservés</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Animation au scroll
+    document.addEventListener('DOMContentLoaded', function() {
+        const cards = document.querySelectorAll('.feature-card, .document-card, .subject-card');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        cards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.5s ease';
+            observer.observe(card);
+        });
+    });
+</script>
+
+</body>
+</html>
